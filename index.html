@@ -48,9 +48,11 @@ h1{font-weight:400;font-size:clamp(34px,5.4vw,52px);line-height:1.08;letter-spac
 .links .soon{color:var(--muted)}
 
 /* dark hero band */
-.dark-band{--bg:#0f1113;--paper:#171a1d;--ink:#ecebe7;--ink2:#cfcdc7;--muted:#9a978f;--faint:#23262a;--rule:#34383d;
-  --tau:#62b4bb;--sig:#de8a83;--neutral:#6f6c66;
-  background:var(--bg);color:var(--ink);box-shadow:0 0 0 100vmax var(--bg);clip-path:inset(0 -100vmax);padding:34px 0 30px;margin:26px 0 0}
+.dark-band{--hb:var(--paper);background:var(--hb);color:var(--ink);box-shadow:0 0 0 100vmax var(--hb);clip-path:inset(0 -100vmax);padding:34px 0 30px;margin:26px 0 0;border-block:1px solid var(--rule)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dark-band{--bg:#0f1113;--paper:#171a1d;--ink:#ecebe7;--ink2:#cfcdc7;--muted:#9a978f;--faint:#23262a;--rule:#34383d;
+  --tau:#62b4bb;--sig:#de8a83;--neutral:#6f6c66;--hb:var(--bg);color-scheme:dark}}
+:root[data-theme="dark"] .dark-band{--bg:#0f1113;--paper:#171a1d;--ink:#ecebe7;--ink2:#cfcdc7;--muted:#9a978f;--faint:#23262a;--rule:#34383d;
+  --tau:#62b4bb;--sig:#de8a83;--neutral:#6f6c66;--hb:var(--bg);color-scheme:dark}
 .hero-head{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:baseline;justify-content:space-between;margin-bottom:12px}
 .hero-title{font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:.01em}
 .instr{font-family:var(--sans);font-size:14px;color:var(--muted)}
