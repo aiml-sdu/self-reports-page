@@ -168,7 +168,7 @@ footer{margin:70px 0 40px;padding-top:18px;border-top:1px solid var(--rule)}
   <p class="subtitle">An Identifiability Test for Counterfactual Reports</p>
   <p class="standfirst">A language model that tells us what it would say under an internal intervention can be right for the wrong reason. We hold the named intervention fixed and change only the examples in the prompt. The reports drift toward whichever answers the prompt makes authoritative.</p>
   <p class="byline">Phongsakon Mark Konrad, Toygar Tanyel and Serkan Ayvaz<br><span class="aff">Centre for Industrial Software, University of Southern Denmark · Promake</span></p>
-  <p class="links"><a href="https://openreview.net/forum?id=iBq4yYwYfd" rel="noopener">OpenReview ↗</a><span class="sep">·</span><a href="https://arxiv.org/pdf/2609.32449" rel="noopener">PDF</a><span class="sep">·</span><a href="https://arxiv.org/abs/2609.32449" rel="noopener">arXiv ↗</a><span class="sep">·</span><span class="soon">Code coming soon</span><span class="sep">·</span><a href="#cite">Cite this article</a></p>
+  <p class="links"><a href="https://openreview.net/forum?id=iBq4yYwYfd" rel="noopener">OpenReview ↗</a><span class="sep">·</span><a href="https://arxiv.org/pdf/2609.32449" rel="noopener">PDF</a><span class="sep">·</span><a href="index.md">Markdown</a><span class="sep">·</span><a href="https://arxiv.org/abs/2609.32449" rel="noopener">arXiv ↗</a><span class="sep">·</span><span class="soon">Code coming soon</span><span class="sep">·</span><a href="#cite">Cite this article</a></p>
  </div>
 </header>
 
@@ -364,7 +364,7 @@ footer{margin:70px 0 40px;padding-top:18px;border-top:1px solid var(--rule)}
 
  <footer class="small">
   <p>Plotted values come from the paper and from its stored result files, the expanded demonstration ablation (240 rows per model and condition), the environment switch summary, the pairwise pull table and the geometry summary. Nothing on this page is simulated. The schematic in Chapter 1 is marked as an illustration.</p>
-  <p>Konrad, Tanyel and Ayvaz · University of Southern Denmark and Promake</p>
+  <p>A project of the <a href="https://aiml-sdu.github.io" target="_blank" rel="noopener">Applied and Interpretable Machine Learning Research Group</a> at the University of Southern Denmark.</p>
  </footer>
 </div>
 </main>
@@ -391,8 +391,9 @@ var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeou
 var tb=document.getElementById('themeBtn');
 function curDark(){var t=document.documentElement.getAttribute('data-theme');if(t)return t==='dark';return matchMedia('(prefers-color-scheme: dark)').matches;}
 function setLbl(){tb.textContent=curDark()?'Light':'Dark';}
+try{var sv=localStorage.getItem('page-theme');if(sv==='light'||sv==='dark')document.documentElement.setAttribute('data-theme',sv);}catch(e){}
 setLbl();
-tb.addEventListener('click',function(){document.documentElement.setAttribute('data-theme',curDark()?'light':'dark');setLbl();});
+tb.addEventListener('click',function(){var n=curDark()?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('page-theme',n);}catch(e){}setLbl();redraws.forEach(function(f){f();});});
 
 /* ---------- hero field ---------- */
 var F=D.field,TX=F.texts,CON=F.concepts;
